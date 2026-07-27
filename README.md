@@ -1,23 +1,21 @@
-<p align="center"><img width="50%" height="auto" src="./assets/images/main.png"></p>
-<h1 align="center">Hi 👋, I'm Joseph</h1>
+# josephchow.dev
 
-<p align="center">
-  <a href="https://github.com/DenverCoder1/readme-typing-svg"><img src="https://readme-typing-svg.herokuapp.com?font=Montserrat&duration=3000&color=FA7268&center=true&vCenter=true&multiline=true&width=500&height=60&lines=I+am+a+Frontend+Developer+;Learning+and+creating+are+my+passions"></a>
-</p>
+Personal one-page site for [Joseph Chow](https://josephchow.dev).
 
-- 🔭 I’m currently working on [1000WORDS](https://github.com/chowjiaming/1000WORDS)
+## Stack
 
-- 🌱 I’m currently learning [Signals](https://preactjs.com/guide/v10/signals/) and [tRPC](https://trpc.io/)
+- [Astro](https://astro.build) (static)
+- TypeScript
+- pnpm
 
-- 👨‍💻 All of my projects are available at [josephchow.dev](https://josephchow.dev)
+## Scripts
 
-- 📫 How to reach me **contact@josephchow.dev**
+- `pnpm dev` — local dev server
+- `pnpm build` — typecheck + production build to `dist/`
+- `pnpm preview` — preview the production build
+- `pnpm typecheck` — `astro check`
+- `pnpm test:build` — build, then smoke-test `dist/index.html`
 
-## 🙋‍♀️ Let's Connect
+## Deploy
 
-<p align="center">
-  <a href="https://josephchow.dev"><img src="./assets/icons/website.png" alt="Website"/></a>
-	<a href="mailto:contact@josephchow.dev"><img src="./assets/icons/email.png" alt="Gmail"/></a>
-	<a href="https://github.com/chowjiaming"><img src="./assets/icons/github.png" alt="GitHub"/></a>
-	<a href="https://linkedin.com/in/chowjiaming"><img src="./assets/icons/linkedin.png" alt="LinkedIn"/></a>
-</p>
+Netlify: build `pnpm build`, publish `dist` (see `netlify.toml`).
