@@ -11,7 +11,7 @@ pnpm install
 pnpm dev
 ```
 
-Node.js 22+ and pnpm 11+ are required (`packageManager` is pinned in `package.json`).
+Node.js 24+ and pnpm 11+ are required (`packageManager` is pinned in `package.json`).
 
 ## Scripts
 
