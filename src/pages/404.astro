@@ -1,18 +1,26 @@
 ---
 import ExternalLink from '../components/ExternalLink.astro';
+import {messagesFor} from '../i18n/messages';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import '../styles/page.css';
 
-const description = 'Page not found.';
+const locale = 'en' as const;
+const messages = messagesFor(locale);
 ---
 
-<BaseLayout title="Not found · Joseph Chow" description={description}>
+<BaseLayout
+  title={`${messages.notFoundTitle()} · ${messages.siteTitle()}`}
+  description={messages.notFoundMeta()}
+  locale={locale}
+  ogImageAlt={messages.ogImageAlt()}
+>
   <main class="main">
     <section class="content">
-      <h1 class="heading">Not found.</h1>
+      <h1 class="heading">{messages.notFoundTitle()}</h1>
       <p class="text">
-        That page does not exist.
-        <ExternalLink href="/">Back home</ExternalLink>.
+        {messages.notFoundBody()}
+        {' '}
+        <ExternalLink href="/">{messages.notFoundHome()}</ExternalLink>.
       </p>
     </section>
   </main>

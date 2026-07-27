@@ -8,7 +8,9 @@
       "!**/.netlify",
       "!**/.lighthouseci",
       "!**/node_modules",
-      "!**/pnpm-lock.yaml"
+      "!**/pnpm-lock.yaml",
+      "!**/src/paraglide",
+      "!**/project.inlang/.meta.json"
     ]
   },
   "formatter": {

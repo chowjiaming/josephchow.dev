@@ -1,0 +1,36 @@
+---
+import type {Messages} from '../i18n/messages';
+import '../styles/chrome.css';
+
+type Props = {
+  messages: Messages;
+};
+
+const {messages} = Astro.props;
+---
+
+<div class="chrome-group" data-theme-control>
+  <fieldset class="theme-options">
+    <legend class="chrome-label">{messages.themeNavLabel()}</legend>
+    <label class="chrome-radio">
+      <input type="radio" name="theme" value="light" data-theme-value="light">
+      <span>{messages.themeLight()}</span>
+    </label>
+    <label class="chrome-radio">
+      <input type="radio" name="theme" value="dark" data-theme-value="dark">
+      <span>{messages.themeDark()}</span>
+    </label>
+    <label class="chrome-radio">
+      <input
+        type="radio"
+        name="theme"
+        value="system"
+        data-theme-value="system"
+        checked
+      >
+      <span>{messages.themeSystem()}</span>
+    </label>
+  </fieldset>
+</div>
+
+<script src="../scripts/theme-control.ts"></script>

@@ -1,0 +1,73 @@
+.chrome {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem 1.75rem;
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgb(var(--text) / 0.12);
+}
+
+.chrome-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  min-width: 10rem;
+}
+
+.chrome-label {
+  font-size: 0.85rem;
+  opacity: 0.75;
+}
+
+.chrome-select,
+.chrome-button {
+  font: inherit;
+  color: rgb(var(--text));
+  background: rgb(var(--bg));
+  border: 1px solid rgb(var(--text) / 0.28);
+  border-radius: 0.25rem;
+  padding: 0.35rem 0.55rem;
+}
+
+.chrome-select:focus-visible,
+.chrome-button:focus-visible {
+  outline: 2px solid rgb(46, 196, 182);
+  outline-offset: 2px;
+}
+
+.theme-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-inline-size: 0;
+}
+
+.chrome-radio {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font: inherit;
+  color: rgb(var(--text));
+  background: rgb(var(--bg));
+  border: 1px solid rgb(var(--text) / 0.28);
+  border-radius: 0.25rem;
+  padding: 0.35rem 0.55rem;
+  cursor: pointer;
+}
+
+.chrome-radio:has(input:focus-visible) {
+  outline: 2px solid rgb(46, 196, 182);
+  outline-offset: 2px;
+}
+
+.chrome-radio:has(input:checked) {
+  background: rgba(var(--highlight));
+  border-color: transparent;
+}
+
+.chrome-radio input {
+  margin: 0;
+}

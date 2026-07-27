@@ -1,0 +1,50 @@
+---
+import type {LocalePath} from '../i18n/locales';
+import type {Messages} from '../i18n/messages';
+import ExternalLink from './ExternalLink.astro';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+import ThemeControl from './ThemeControl.astro';
+import '../styles/page.css';
+
+type Props = {
+  locale: LocalePath;
+  messages: Messages;
+};
+
+const {locale, messages} = Astro.props;
+---
+
+<main class="main">
+  <section class="content">
+    <p class="heading">{messages.greeting()}</p>
+    <h1 class="subheading">{messages.nameLine()}</h1>
+    <p class="text">{messages.workBody()}</p>
+    <p class="text">
+      {messages.recentBefore()}
+      {' '}
+      <ExternalLink href="https://github.com/chowjiaming/toolcall-timeline"
+        >{messages.recentLinkLabel()}</ExternalLink
+      >{messages.recentAfter()}
+    </p>
+    <p class="text">{messages.craftBody()}</p>
+    <p class="text">{messages.languagesBody()}</p>
+    <p class="text">
+      {messages.contactBefore()}
+      {' '}
+      <ExternalLink href="https://github.com/chowjiaming"
+        >{messages.contactGithub()}</ExternalLink
+      >,
+      <ExternalLink href="https://www.linkedin.com/in/chowjiaming/"
+        >{messages.contactLinkedin()}</ExternalLink
+      >{messages.contactOrAt()}
+      {' '}
+      <ExternalLink href="mailto:contact@josephchow.dev"
+        >contact@josephchow.dev</ExternalLink
+      >.
+    </p>
+    <div class="chrome">
+      <LanguageSwitcher locale={locale} messages={messages} />
+      <ThemeControl messages={messages} />
+    </div>
+  </section>
+</main>

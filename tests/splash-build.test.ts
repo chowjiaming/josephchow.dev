@@ -1,12 +1,22 @@
 import {existsSync, readdirSync, readFileSync} from 'node:fs';
 import {describe, expect, it} from 'vitest';
 
+const localePaths = ['en', 'zh-hans', 'zh-hant', 'yue', 'vi', 'fr'] as const;
+
+function pagePath(locale: (typeof localePaths)[number]): string {
+  return locale === 'en' ? 'dist/index.html' : `dist/${locale}/index.html`;
+}
+
 describe('built splash page', () => {
-  it('emits dist/index.html', () => {
-    expect(existsSync('dist/index.html')).toBe(true);
+  it('emits locale index pages and OG assets', () => {
+    for (const locale of localePaths) {
+      expect(existsSync(pagePath(locale))).toBe(true);
+      expect(existsSync(`dist/og/${locale}.png`)).toBe(true);
+    }
+    expect(existsSync('dist/og.png')).toBe(true);
   });
 
-  it('includes the agreed calling-card copy and contact targets', () => {
+  it('includes the agreed English calling-card copy and contact targets', () => {
     const html = readFileSync('dist/index.html', 'utf8');
     expect(html).toContain('Hello.');
     expect(html).toContain('My name is Joseph Chow.');
@@ -32,11 +42,30 @@ describe('built splash page', () => {
     expect(html).not.toContain('\u2014');
   });
 
+  it('localizes non-English pages and wires hreflang', () => {
+    const en = readFileSync('dist/index.html', 'utf8');
+    expect(en).toContain('hreflang="zh-Hans"');
+    expect(en).toContain('hreflang="x-default"');
+    expect(en).toContain('data-theme');
+    expect(en).toContain('localStorage.getItem(k)');
+    expect(en).toContain('/og/en.png');
+
+    const zhHans = readFileSync('dist/zh-hans/index.html', 'utf8');
+    expect(zhHans).toContain('lang="zh-Hans"');
+    expect(zhHans).toContain('你好。');
+    expect(zhHans).toContain('/og/zh-hans.png');
+
+    const fr = readFileSync('dist/fr/index.html', 'utf8');
+    expect(fr).toContain('lang="fr"');
+    expect(fr).toContain('Bonjour.');
+    expect(fr).toContain('/og/fr.png');
+  });
+
   it('includes SEO, a11y, and privacy hardening signals', () => {
     const html = readFileSync('dist/index.html', 'utf8');
     expect(html).toContain('rel="canonical"');
     expect(html).toContain('https://josephchow.dev/');
-    expect(html).toContain('/og.png');
+    expect(html).toContain('/og/en.png');
     expect(html).toContain('og:image:alt');
     expect(html).toContain('theme-color');
     expect(html).toContain('application/ld+json');
@@ -66,8 +95,7 @@ describe('built splash page', () => {
     expect(hasSitemap).toBe(true);
   });
 
-  it('ships a 1200x630 OG image and SVG favicon', () => {
-    expect(existsSync('dist/og.png')).toBe(true);
+  it('ships SVG favicon', () => {
     expect(existsSync('dist/favicon.svg')).toBe(true);
   });
 });
