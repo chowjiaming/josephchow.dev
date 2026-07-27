@@ -47,7 +47,10 @@ describe('built splash page', () => {
     expect(en).toContain('hreflang="zh-Hans"');
     expect(en).toContain('hreflang="x-default"');
     expect(en).toContain('data-theme');
-    expect(en).toContain('localStorage.getItem(k)');
+    expect(en).toContain('/scripts/theme-init.js');
+    expect(en).toContain('/scripts/locale-switcher.js');
+    expect(en).toContain('/scripts/theme-control.js');
+    expect(en).not.toContain('<script type="module">');
     expect(en).toContain('/og/en.png');
 
     const zhHans = readFileSync('dist/zh-hans/index.html', 'utf8');

@@ -1,5 +1,3 @@
-type ThemePreference = 'light' | 'dark' | 'system';
-
 const storageKey = 'theme';
 const root = document.documentElement;
 const metaTheme = document.querySelector('meta[name="theme-color"]');
@@ -8,13 +6,13 @@ const control = document.querySelector('[data-theme-control]');
 const lightColor = '#fafafa';
 const darkColor = '#121212';
 
-function preferredScheme(): 'light' | 'dark' {
+function preferredScheme() {
   return window.matchMedia('(prefers-color-scheme: dark)').matches
     ? 'dark'
     : 'light';
 }
 
-function readStoredTheme(): ThemePreference {
+function readStoredTheme() {
   const value = window.localStorage.getItem(storageKey);
   if (value === 'light' || value === 'dark' || value === 'system') {
     return value;
@@ -22,11 +20,11 @@ function readStoredTheme(): ThemePreference {
   return 'system';
 }
 
-function resolvedTheme(preference: ThemePreference): 'light' | 'dark' {
+function resolvedTheme(preference) {
   return preference === 'system' ? preferredScheme() : preference;
 }
 
-function applyTheme(preference: ThemePreference): void {
+function applyTheme(preference) {
   root.dataset.theme = preference;
   const resolved = resolvedTheme(preference);
   if (metaTheme) {

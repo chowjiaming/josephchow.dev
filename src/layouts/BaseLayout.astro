@@ -28,8 +28,6 @@ const personJsonLd = {
     'https://www.linkedin.com/in/chowjiaming/',
   ],
 };
-
-const themeBootstrap = `(function(){try{var k='theme';var v=localStorage.getItem(k);if(v==='light'||v==='dark'||v==='system'){document.documentElement.dataset.theme=v;}else{document.documentElement.dataset.theme='system';}}catch(e){document.documentElement.dataset.theme='system';}})();`;
 ---
 
 <!doctype html>
@@ -37,7 +35,7 @@ const themeBootstrap = `(function(){try{var k='theme';var v=localStorage.getItem
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script is:inline set:html={themeBootstrap} />
+    <script is:inline src="/scripts/theme-init.js"></script>
     <meta name="description" content={description}>
     <meta name="author" content="Joseph Chow">
     <meta name="theme-color" content="#fafafa">
