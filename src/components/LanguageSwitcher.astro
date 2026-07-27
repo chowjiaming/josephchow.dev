@@ -1,0 +1,51 @@
+---
+import type {LocalePath} from '../i18n/locales';
+import {LOCALE_COOKIE, locales} from '../i18n/locales';
+import type {Messages} from '../i18n/messages';
+import '../styles/chrome.css';
+
+type Props = {
+  locale: LocalePath;
+  messages: Messages;
+};
+
+const {locale, messages} = Astro.props;
+
+const options = [
+  {path: 'en' as const, label: messages.localeEn()},
+  {path: 'zh-hans' as const, label: messages.localeZhHans()},
+  {path: 'zh-hant' as const, label: messages.localeZhHant()},
+  {path: 'yue' as const, label: messages.localeYue()},
+  {path: 'vi' as const, label: messages.localeVi()},
+  {path: 'fr' as const, label: messages.localeFr()},
+];
+---
+
+<div class="chrome-group">
+  <label class="chrome-label" for="locale-switcher"
+    >{messages.localeNavLabel()}</label
+  >
+  <select
+    id="locale-switcher"
+    class="chrome-select"
+    data-locale-switcher
+    data-cookie-name={LOCALE_COOKIE}
+    aria-label={messages.localeNavLabel()}
+  >
+    {options.map((option) => {
+        const href =
+          locales.find((entry) => entry.path === option.path)?.homeHref ?? '/';
+        return (
+          <option
+            value={option.path}
+            data-href={href}
+            selected={option.path === locale}
+          >
+            {option.label}
+          </option>
+        );
+      })}
+  </select>
+</div>
+
+<script src="../scripts/locale-switcher.ts"></script>

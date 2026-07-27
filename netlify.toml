@@ -6,6 +6,9 @@
   NODE_VERSION = "24"
   ASTRO_TELEMETRY_DISABLED = "1"
 
+[dev]
+  edge_port = 6464
+
 [[headers]]
   for = "/*"
   [headers.values]

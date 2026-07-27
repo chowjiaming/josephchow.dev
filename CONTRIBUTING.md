@@ -18,10 +18,13 @@ Node.js 24+ and pnpm 11+ are required (`packageManager` is pinned in `package.js
 | Command | Purpose |
 | --- | --- |
 | `pnpm lint` / `pnpm format` | Biome check / write |
-| `pnpm typecheck` | `astro check` |
+| `pnpm typecheck` | Compile i18n, then `astro check` |
+| `pnpm compile:i18n` | Compile Paraglide messages |
 | `pnpm test:build` | Production build + smoke tests |
 | `pnpm test:a11y` | axe against `dist/` (build first) |
 | `pnpm preview` | Preview the production build |
+
+Edit copy in `messages/{locale}.json`, then run `pnpm compile:i18n` (or `pnpm build`).
 
 ## Commits
 
