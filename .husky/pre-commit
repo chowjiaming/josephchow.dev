@@ -1,1 +1,5 @@
-pnpm commit
+#!/usr/bin/env sh
+set -e
+
+pnpm exec lint-staged
+ASTRO_TELEMETRY_DISABLED=1 pnpm typecheck

@@ -1,6 +1,0 @@
-dist
-.astro
-.lighthouseci
-.netlify
-pnpm-lock.yaml
-node_modules

@@ -16,13 +16,9 @@
     "test:build": "pnpm build && vitest run tests/splash-build.test.ts",
     "test:a11y": "node scripts/a11y.mjs",
     "test:lhci": "lhci autorun",
-    "lint": "prettier --check .",
-    "format": "prettier --write .",
-    "commit": "lint-staged && pretty-quick --staged",
+    "lint": "biome check .",
+    "format": "biome check --write .",
     "prepare": "husky"
-  },
-  "lint-staged": {
-    "*.{json,md,html,css,ts,astro}": "prettier --check"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
@@ -31,15 +27,13 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.9",
+    "@biomejs/biome": "^2.5.5",
     "@lhci/cli": "^0.15.1",
     "@types/node": "^26.1.1",
     "axe-core": "^4.12.1",
     "husky": "^9.1.7",
     "jsdom": "^29.1.1",
     "lint-staged": "^17.2.0",
-    "prettier": "^3.9.6",
-    "prettier-plugin-astro": "^0.14.1",
-    "pretty-quick": "^4.2.2",
     "serve": "^14.2.6",
     "typescript": "~5.9.3",
     "vitest": "^4.1.10"

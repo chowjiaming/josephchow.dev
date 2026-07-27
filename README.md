@@ -17,7 +17,8 @@ Personal one-page site for [Joseph Chow](https://josephchow.dev).
 - `pnpm test:build` — build, then smoke-test `dist/index.html`
 - `pnpm test:a11y` — axe-core against `dist/index.html` (requires a prior build)
 - `pnpm test:lhci` — Lighthouse CI budgets against `dist/` (requires a prior build)
-- `pnpm lint` — Prettier check
+- `pnpm lint` — Biome check (lint + format)
+- `pnpm format` — Biome check with `--write`
 
 ## Deploy
 
@@ -26,4 +27,5 @@ Netlify: build `pnpm build`, publish `dist` (see `netlify.toml`). Security heade
 ## Notes
 
 - TypeScript is pinned to 5.9.x because `astro check` does not yet support TypeScript 7's compiler API.
-- CI runs typecheck, smoke tests, axe, and Lighthouse on every PR.
+- CI runs lint, typecheck, smoke tests, axe, and Lighthouse on every PR.
+- Pre-commit runs Biome on staged files via lint-staged, then `astro check`.

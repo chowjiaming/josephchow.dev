@@ -1,6 +1,6 @@
-import axe from 'axe-core';
 import {readFileSync} from 'node:fs';
 import {fileURLToPath} from 'node:url';
+import axe from 'axe-core';
 import {JSDOM} from 'jsdom';
 
 const indexPath = fileURLToPath(new URL('../dist/index.html', import.meta.url));

@@ -1,3 +1,5 @@
 {
-  "*.{json,md,html,css,ts,astro}": "prettier --check"
+  "*": [
+    "biome check --write --no-errors-on-unmatched --files-ignore-unknown=true --colors=off"
+  ]
 }
