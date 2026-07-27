@@ -103,9 +103,13 @@ Astro telemetry is disabled in Netlify and CI via `ASTRO_TELEMETRY_DISABLED=1`. 
 - **Commit messages:** [Conventional Commits](https://www.conventionalcommits.org/) via commitlint
 - **`pnpm-workspace.yaml`:** only configures `allowBuilds` for packages that need install scripts (e.g. `esbuild`, `sharp`)
 
-## Contributing
+## Source & contributions
 
-See [CONTRIBUTING.md](./CONTRIBUTING.md). By participating, you agree to the [Code of Conduct](./CODE_OF_CONDUCT.md).
+This repo is public for transparency and portfolio. It is not an actively maintained open-source project — unsolicited large PRs are unlikely to merge.
+
+Small fixes (typos, broken links, accessibility) are welcome: open an issue first, then a PR if it makes sense. Before opening a PR, run `pnpm lint`, `pnpm typecheck`, and `pnpm test:build`. Commits use [Conventional Commits](https://www.conventionalcommits.org/). Changes go live via Netlify when merged to `main`.
+
+Be respectful. For concerns, email [contact@josephchow.dev](mailto:contact@josephchow.dev).
 
 Security reports: [SECURITY.md](./SECURITY.md).
 

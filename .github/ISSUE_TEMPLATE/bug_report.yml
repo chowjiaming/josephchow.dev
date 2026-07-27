@@ -1,5 +1,5 @@
-name: Bug report
-description: Report a problem with josephchow.dev or this repo
+name: Bug on the live site
+description: Something wrong on josephchow.dev
 title: "[bug]: "
 labels: ["bug"]
 body:
@@ -7,26 +7,18 @@ body:
     id: description
     attributes:
       label: What happened?
-      description: Clear description of the issue.
     validations:
       required: true
-  - type: textarea
-    id: steps
+  - type: input
+    id: url
     attributes:
-      label: Steps to reproduce
-      description: Numbered steps if applicable.
-    validations:
-      required: false
-  - type: textarea
-    id: expected
-    attributes:
-      label: Expected behavior
+      label: URL
+      description: Page where you saw the issue (e.g. /zh-hans/)
     validations:
       required: false
   - type: input
     id: environment
     attributes:
-      label: Environment
-      description: Browser, OS, or Node version if relevant.
+      label: Browser / device
     validations:
       required: false
