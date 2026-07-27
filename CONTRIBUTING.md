@@ -5,8 +5,8 @@ Thanks for your interest in improving [josephchow.dev](https://josephchow.dev). 
 ## Setup
 
 ```bash
-git clone https://github.com/chowjiaming/one-page-splash.git
-cd one-page-splash
+git clone https://github.com/chowjiaming/josephchow.dev.git
+cd josephchow.dev
 pnpm install
 pnpm dev
 ```

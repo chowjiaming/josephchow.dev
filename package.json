@@ -8,10 +8,10 @@
   "author": "Joseph Chow <contact@josephchow.dev>",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/chowjiaming/one-page-splash.git"
+    "url": "git+https://github.com/chowjiaming/josephchow.dev.git"
   },
   "bugs": {
-    "url": "https://github.com/chowjiaming/one-page-splash/issues"
+    "url": "https://github.com/chowjiaming/josephchow.dev/issues"
   },
   "type": "module",
   "packageManager": "pnpm@11.17.0",
