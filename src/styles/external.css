@@ -5,6 +5,11 @@
   position: relative;
 }
 
+.external--mail {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
 .external::after {
   content: '';
   position: absolute;
@@ -19,4 +24,9 @@
 
 .external:hover::after {
   top: 0;
+}
+
+.external:focus-visible {
+  outline: 2px solid rgb(46, 196, 182);
+  outline-offset: 2px;
 }

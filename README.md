@@ -15,7 +15,15 @@ Personal one-page site for [Joseph Chow](https://josephchow.dev).
 - `pnpm preview` — preview the production build
 - `pnpm typecheck` — `astro check`
 - `pnpm test:build` — build, then smoke-test `dist/index.html`
+- `pnpm test:a11y` — axe-core against `dist/index.html` (requires a prior build)
+- `pnpm test:lhci` — Lighthouse CI budgets against `dist/` (requires a prior build)
+- `pnpm lint` — Prettier check
 
 ## Deploy
 
-Netlify: build `pnpm build`, publish `dist` (see `netlify.toml`).
+Netlify: build `pnpm build`, publish `dist` (see `netlify.toml`). Security headers and CSP are configured there.
+
+## Notes
+
+- TypeScript is pinned to 5.9.x because `astro check` does not yet support TypeScript 7's compiler API.
+- CI runs typecheck, smoke tests, axe, and Lighthouse on every PR.
