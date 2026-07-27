@@ -1,4 +1,5 @@
-:root {
+:root,
+html[data-theme="light"] {
   --highlight: 46, 196, 182, 0.5;
   --text: 20, 20, 20;
   --bg: 250, 250, 250;
@@ -13,7 +14,8 @@ html[data-theme="dark"] {
 }
 
 @media (prefers-color-scheme: dark) {
-  html:not([data-theme="light"]) {
+  html[data-theme="system"],
+  html:not([data-theme]) {
     --highlight: 46, 196, 182, 0.45;
     --text: 236, 236, 236;
     --bg: 18, 18, 18;

@@ -61,7 +61,7 @@ A Netlify Edge Function on `GET /` may `302` first-time visitors to a matching l
 
 - Defaults to **system** (`prefers-color-scheme`).
 - Light / Dark / System control persists to `localStorage` key `theme`.
-- A tiny inline script sets `data-theme` before paint to avoid a flash.
+- `/scripts/theme-init.js` sets `data-theme` before paint to avoid a flash (external file so Netlify CSP `script-src 'self'` allows it).
 
 ## Stack
 
@@ -86,6 +86,7 @@ src/
   styles/                 # global (incl. dark tokens), page, chrome
 netlify/edge-functions/   # Accept-Language redirect
 public/og/                # per-locale Open Graph PNGs
+public/scripts/           # theme + locale switcher (CSP-safe)
 tests/                    # build + negotiation tests
 scripts/                  # axe runner, OG generator
 ```
