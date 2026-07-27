@@ -1,0 +1,19 @@
+---
+import '../styles/external.css';
+
+type Props = {
+  href: string;
+};
+
+const {href} = Astro.props;
+const isMail = href.startsWith('mailto:');
+---
+
+<a
+  class="external"
+  href={href}
+  target={isMail ? undefined : '_blank'}
+  rel={isMail ? undefined : 'noopener noreferrer'}
+>
+  <slot />
+</a>
