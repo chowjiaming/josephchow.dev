@@ -1,0 +1,19 @@
+---
+import ExternalLink from '../components/ExternalLink.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import '../styles/page.css';
+
+const description = 'Page not found.';
+---
+
+<BaseLayout title="Not found · Joseph Chow" description={description}>
+  <main class="main">
+    <section class="content">
+      <h1 class="heading">Not found.</h1>
+      <p class="text">
+        That page does not exist.
+        <ExternalLink href="/">Back home</ExternalLink>.
+      </p>
+    </section>
+  </main>
+</BaseLayout>

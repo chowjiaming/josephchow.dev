@@ -1,0 +1,75 @@
+---
+import '@fontsource/red-hat-mono/400.css';
+import '@fontsource/red-hat-mono/500.css';
+import '../styles/global.css';
+
+type Props = {
+  title: string;
+  description: string;
+};
+
+const {title, description} = Astro.props;
+const site = Astro.site?.href ?? 'https://josephchow.dev/';
+const canonical = new URL(Astro.url.pathname, site).href;
+const ogImage = new URL('/og.png', site).href;
+const ogImageAlt = 'Joseph Chow — full-stack engineer';
+
+const personJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Joseph Chow',
+  url: site,
+  email: 'contact@josephchow.dev',
+  sameAs: [
+    'https://github.com/chowjiaming',
+    'https://www.linkedin.com/in/chowjiaming/',
+  ],
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content={description}>
+    <meta name="author" content="Joseph Chow">
+    <meta name="theme-color" content="#fafafa">
+    <link rel="canonical" href={canonical}>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/icon-512.png">
+
+    <meta property="og:title" content={title}>
+    <meta property="og:description" content={description}>
+    <meta property="og:url" content={canonical}>
+    <meta property="og:site_name" content="Joseph Chow">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:image" content={ogImage}>
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content={ogImageAlt}>
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content={title}>
+    <meta name="twitter:description" content={description}>
+    <meta name="twitter:creator" content="@chowjiaming">
+    <meta name="twitter:image" content={ogImage}>
+    <meta name="twitter:image:alt" content={ogImageAlt}>
+
+    <title>{title}</title>
+    <script
+      is:inline
+      type="application/ld+json"
+      set:html={JSON.stringify(personJsonLd)}
+    />
+    <style is:global>
+      body {
+        font-family: "Red Hat Mono", ui-monospace, monospace;
+      }
+    </style>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

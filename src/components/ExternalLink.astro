@@ -1,0 +1,23 @@
+---
+import '../styles/external.css';
+
+type Props = {
+  href: string;
+};
+
+const {href} = Astro.props;
+const isMail = href.startsWith('mailto:');
+const isExternalHttp =
+  href.startsWith('http://') || href.startsWith('https://');
+const opensInNewTab = isExternalHttp;
+---
+
+<a
+  class:list={['external', {'external--mail': isMail}]}
+  href={href}
+  target={opensInNewTab ? '_blank' : undefined}
+  rel={opensInNewTab ? 'noopener noreferrer' : undefined}
+>
+  <slot />
+  {opensInNewTab && <span class="visually-hidden"> (opens in a new tab)</span>}
+</a>

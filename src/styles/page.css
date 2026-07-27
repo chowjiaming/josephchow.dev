@@ -1,0 +1,71 @@
+.main {
+  display: grid;
+  grid-template-columns: 0.3fr 2.4fr 0.3fr;
+  grid-template-rows: 0.2fr 2.4fr 0.4fr;
+  gap: 0;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "padding_top padding_top padding_top"
+    "padding_left main_content padding_right"
+    "padding_bottom padding_bottom padding_bottom";
+  min-height: 100vh;
+}
+
+@media screen and (min-width: 30rem) {
+  .main {
+    grid-template-columns: 0.3fr 2.2fr 0.5fr;
+  }
+}
+
+@media screen and (min-width: 48rem) {
+  .main {
+    grid-template-columns: 0.3fr 2fr 0.7fr;
+  }
+}
+
+@media screen and (min-width: 62rem) {
+  .main {
+    grid-template-columns: 0.3fr 1.8fr 0.9fr;
+  }
+}
+
+@media screen and (min-width: 80rem) {
+  .main {
+    grid-template-columns: 0.3fr 1.6fr 1.1fr;
+  }
+}
+
+@media screen and (min-width: 96rem) {
+  .main {
+    grid-template-columns: 0.3fr 1.4fr 1.3fr;
+  }
+}
+
+.content {
+  grid-area: main_content;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+@media screen and (min-width: 48rem) {
+  .content {
+    padding: 0;
+  }
+}
+
+.heading {
+  font-size: calc(2.75rem + 0.45vw);
+  font-weight: 500;
+}
+
+.subheading {
+  font-size: calc(1.35rem + 0.4vw);
+  font-weight: 500;
+}
+
+.text {
+  font-size: calc(1rem + 0.35vw);
+}

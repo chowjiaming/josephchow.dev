@@ -1,23 +1,37 @@
-<p align="center"><img width="50%" height="auto" src="./assets/images/main.png"></p>
-<h1 align="center">Hi 👋, I'm Joseph</h1>
+# josephchow.dev
 
-<p align="center">
-  <a href="https://github.com/DenverCoder1/readme-typing-svg"><img src="https://readme-typing-svg.herokuapp.com?font=Montserrat&duration=3000&color=FA7268&center=true&vCenter=true&multiline=true&width=500&height=60&lines=I+am+a+Frontend+Developer+;Learning+and+creating+are+my+passions"></a>
-</p>
+Personal one-page site for [Joseph Chow](https://josephchow.dev).
 
-- 🔭 I’m currently working on [1000WORDS](https://github.com/chowjiaming/1000WORDS)
+Source lives in the GitHub repo [`chowjiaming/one-page-splash`](https://github.com/chowjiaming/one-page-splash) (package name `josephchow-dev`).
 
-- 🌱 I’m currently learning [Signals](https://preactjs.com/guide/v10/signals/) and [tRPC](https://trpc.io/)
+## Stack
 
-- 👨‍💻 All of my projects are available at [josephchow.dev](https://josephchow.dev)
+- [Astro](https://astro.build) (static)
+- TypeScript
+- pnpm
 
-- 📫 How to reach me **contact@josephchow.dev**
+## Scripts
 
-## 🙋‍♀️ Let's Connect
+- `pnpm dev` — local dev server
+- `pnpm build` — typecheck + production build to `dist/`
+- `pnpm preview` — preview the production build
+- `pnpm typecheck` — `astro check`
+- `pnpm test:build` — build, then smoke-test `dist/index.html`
+- `pnpm test:a11y` — axe-core against `dist/index.html` (requires a prior build)
+- `pnpm test:lhci` — Lighthouse CI budgets against `dist/` (requires a prior build)
+- `pnpm lint` — Biome check (lint + format)
+- `pnpm format` — Biome check with `--write`
 
-<p align="center">
-  <a href="https://josephchow.dev"><img src="./assets/icons/website.png" alt="Website"/></a>
-	<a href="mailto:contact@josephchow.dev"><img src="./assets/icons/email.png" alt="Gmail"/></a>
-	<a href="https://github.com/chowjiaming"><img src="./assets/icons/github.png" alt="GitHub"/></a>
-	<a href="https://linkedin.com/in/chowjiaming"><img src="./assets/icons/linkedin.png" alt="LinkedIn"/></a>
-</p>
+## Deploy
+
+Netlify: build `pnpm build`, publish `dist` (see `netlify.toml`). Security headers and CSP are configured there.
+
+Astro telemetry is disabled in Netlify and CI via `ASTRO_TELEMETRY_DISABLED=1`. Locally you can export the same variable.
+
+## Notes
+
+- TypeScript is pinned to 5.9.x because `astro check` does not yet support TypeScript 7's compiler API.
+- CI runs lint, typecheck, smoke tests, axe, and Lighthouse on every PR.
+- Pre-commit runs Biome on staged files via lint-staged, then `astro check`. Commit messages are linted with commitlint (conventional commits).
+- `pnpm-workspace.yaml` only configures `allowBuilds` for packages that need install scripts (for example `esbuild`, `sharp`).
+- See [CONTRIBUTING.md](./CONTRIBUTING.md) for local setup and PR expectations.
