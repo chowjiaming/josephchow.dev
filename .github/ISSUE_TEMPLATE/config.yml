@@ -1,5 +1,5 @@
 blank_issues_enabled: true
 contact_links:
-  - name: Email
-    url: mailto:contact@josephchow.dev
-    about: Reach Joseph directly for security or private matters.
+  - name: Security / private contact
+    url: https://github.com/chowjiaming/josephchow.dev/security/policy
+    about: Report vulnerabilities privately (email listed in SECURITY.md).
