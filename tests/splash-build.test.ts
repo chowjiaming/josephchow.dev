@@ -12,7 +12,12 @@ describe('built splash page', () => {
     expect(html).toContain('My name is Joseph Chow.');
     expect(html).toContain('<h1');
     expect(html).toContain('Full-stack engineer');
+    expect(html).toContain('Local-first, on purpose');
+    expect(html).toContain('toolcall-timeline');
+    expect(html).toContain('https://github.com/chowjiaming/toolcall-timeline');
     expect(html).toContain('MCP');
+    expect(html).toContain('small, sharp tools');
+    expect(html).toContain('Toronto');
     expect(html).toContain('Mandarin');
     expect(html).toContain('Cantonese');
     expect(html).toContain('Vietnamese');
@@ -24,6 +29,7 @@ describe('built splash page', () => {
     expect(html).not.toContain('Iteration Matrix');
     expect(html).not.toContain('flagcdn.com');
     expect(html).not.toContain("Don't be a stranger");
+    expect(html).not.toContain('\u2014');
   });
 
   it('includes SEO, a11y, and privacy hardening signals', () => {
