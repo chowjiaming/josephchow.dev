@@ -1,12 +1,36 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import ExternalLink from '../components/ExternalLink.astro';
+import '../styles/page.css';
+
+const description =
+  'Full-stack engineer building tools around agent workflows and MCP inspectability.';
 ---
 
-<BaseLayout
-  title="Joseph Chow"
-  description="Full-stack engineer. Agent tooling and MCP inspectability."
->
-  <main>
-    <p>Stub</p>
+<BaseLayout title="Joseph Chow" description={description}>
+  <main class="main" role="main">
+    <section class="content">
+      <h1 class="heading">Hello.</h1>
+      <h2 class="subheading">My name is Joseph Chow.</h2>
+      <p class="text">
+        Full-stack engineer. I build tools around agent workflows — especially
+        making MCP tool calls inspectable: traces, latency, and cost.
+        Local-first by default.
+      </p>
+      <p class="text">
+        Outside of work I study Mandarin, Cantonese, Vietnamese, and French.
+      </p>
+      <p class="text">
+        Reach me on
+        <ExternalLink href="https://github.com/chowjiaming">GitHub</ExternalLink
+        >,
+        <ExternalLink href="https://www.linkedin.com/in/chowjiaming/"
+          >LinkedIn</ExternalLink
+        >, or at
+        <ExternalLink href="mailto:contact@josephchow.dev"
+          >contact@josephchow.dev</ExternalLink
+        >.
+      </p>
+    </section>
   </main>
 </BaseLayout>
