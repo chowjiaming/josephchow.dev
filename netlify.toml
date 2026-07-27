@@ -4,6 +4,7 @@
 
 [build.environment]
   NODE_VERSION = "22"
+  ASTRO_TELEMETRY_DISABLED = "1"
 
 [[headers]]
   for = "/*"

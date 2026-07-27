@@ -30,9 +30,10 @@ yarn-error.log*
 # lighthouse
 .lighthouseci
 
-
 # typescript
 *.tsbuildinfo
 
-# vscode
-.vscode
+# editors
+.idea/
+.vscode/*
+!.vscode/extensions.json

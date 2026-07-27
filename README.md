@@ -2,6 +2,8 @@
 
 Personal one-page site for [Joseph Chow](https://josephchow.dev).
 
+Source lives in the GitHub repo [`chowjiaming/one-page-splash`](https://github.com/chowjiaming/one-page-splash) (package name `josephchow-dev`).
+
 ## Stack
 
 - [Astro](https://astro.build) (static)
@@ -24,8 +26,12 @@ Personal one-page site for [Joseph Chow](https://josephchow.dev).
 
 Netlify: build `pnpm build`, publish `dist` (see `netlify.toml`). Security headers and CSP are configured there.
 
+Astro telemetry is disabled in Netlify and CI via `ASTRO_TELEMETRY_DISABLED=1`. Locally you can export the same variable.
+
 ## Notes
 
 - TypeScript is pinned to 5.9.x because `astro check` does not yet support TypeScript 7's compiler API.
 - CI runs lint, typecheck, smoke tests, axe, and Lighthouse on every PR.
-- Pre-commit runs Biome on staged files via lint-staged, then `astro check`.
+- Pre-commit runs Biome on staged files via lint-staged, then `astro check`. Commit messages are linted with commitlint (conventional commits).
+- `pnpm-workspace.yaml` only configures `allowBuilds` for packages that need install scripts (for example `esbuild`, `sharp`).
+- See [CONTRIBUTING.md](./CONTRIBUTING.md) for local setup and PR expectations.
