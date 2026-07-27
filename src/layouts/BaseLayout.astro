@@ -12,7 +12,7 @@ const {title, description} = Astro.props;
 const site = Astro.site?.href ?? 'https://josephchow.dev/';
 const canonical = new URL(Astro.url.pathname, site).href;
 const ogImage = new URL('/og.png', site).href;
-const ogImageAlt = 'Joseph Chow — full-stack engineer';
+const ogImageAlt = 'Joseph Chow, full-stack engineer';
 
 const personJsonLd = {
   '@context': 'https://schema.org',

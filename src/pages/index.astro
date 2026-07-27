@@ -4,7 +4,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import '../styles/page.css';
 
 const description =
-  'Full-stack engineer building tools around agent workflows and MCP inspectability.';
+  'Full-stack engineer drawn to inspectable agent systems: traces, latency, and cost, local-first.';
 ---
 
 <BaseLayout title="Joseph Chow" description={description}>
@@ -13,12 +13,27 @@ const description =
       <p class="heading">Hello.</p>
       <h1 class="subheading">My name is Joseph Chow.</h1>
       <p class="text">
-        Full-stack engineer. I build tools around agent workflows — especially
-        making MCP tool calls inspectable: traces, latency, and cost.
-        Local-first by default.
+        Full-stack engineer. I'm drawn to the quiet parts of agent systems: the
+        tool calls that usually vanish into a black box. I like building so you
+        can actually see what's happening: traces, latency, and cost, on your
+        own machine. Local-first, on purpose.
       </p>
       <p class="text">
-        Outside of work I study Mandarin, Cantonese, Vietnamese, and French.
+        Lately that curiosity became
+        <ExternalLink href="https://github.com/chowjiaming/toolcall-timeline"
+          >toolcall-timeline</ExternalLink
+        >: a local inspector for MCP tool calls, with waterfall timing,
+        payloads, and session cost when the data is there.
+      </p>
+      <p class="text">
+        I like small, sharp tools more than big platforms. If I can't look
+        inside something, I'm slow to trust it. I'd rather ship a loop I can
+        watch, then grow it carefully from there.
+      </p>
+      <p class="text">
+        Away from the keyboard I'm in Toronto, studying Mandarin and Cantonese
+        for family, Vietnamese for community, and French because I'm curious
+        about it.
       </p>
       <p class="text">
         Reach me on
